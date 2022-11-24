@@ -21,9 +21,41 @@ export default createGlobalStyle`
 `;
 
 export const WrapperList = styled.div`
-  margin: 80px 356px;
+  margin: 16px 24px;
+
+  @media (min-width: 480px) {
+    margin: 24px 32px;
+  }
+
+  @media (min-width: 769px) {
+    margin: 32px 56px;
+  }
+
+  @media (min-width: 1024px) {
+    margin: 48px 188px;
+  }
+
+  @media (min-width: 1280px) {
+    margin: 80px 356px;
+  }
 `;
 
 export const WrapperContent = styled.div`
-  margin: 80px 356px;
+  margin: 16px 24px;
+
+  @media (min-width: 480px) {
+    margin: 24px 32px;
+  }
+
+  @media (min-width: 769px) {
+    margin: 32px 56px;
+  }
+
+  @media (min-width: 1024px) {
+    margin: 48px 188px;
+  }
+
+  @media (min-width: 1280px) {
+    margin: 80px 356px;
+  }
 `;
