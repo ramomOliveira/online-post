@@ -1,10 +1,19 @@
+import CardPosts from '../../components/CardPosts';
 import Header from '../../components/Header';
+import { WrapperList } from '../../styles/global';
 
 export default function Posts() {
   return (
     <div>
       <Header />
-      <h1>Posts</h1>
+
+      <WrapperList>
+        <CardPosts />
+        <CardPosts />
+        <CardPosts />
+        <CardPosts />
+        <CardPosts />
+      </WrapperList>
     </div>
   );
 }

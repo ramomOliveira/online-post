@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   * {
@@ -18,4 +18,12 @@ export default createGlobalStyle`
   li {
     list-style-type: none;
   }
+`;
+
+export const WrapperList = styled.div`
+  margin: 80px 356px;
+`;
+
+export const WrapperContent = styled.div`
+  margin: 80px 356px;
 `;
