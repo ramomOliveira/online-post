@@ -56,6 +56,10 @@ export const WrapperContent = styled.div`
   }
 
   @media (min-width: 1280px) {
+    margin: 48px 222px;
+  }
+
+  @media (min-width: 1520px) {
     margin: 80px 356px;
   }
 `;
