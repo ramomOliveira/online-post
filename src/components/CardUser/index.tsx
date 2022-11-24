@@ -1,18 +1,31 @@
 import { UserCircle } from 'phosphor-react';
 import { Container, WrapperUser, WrapperInfo } from './style';
 
-export default function CardUser() {
+interface UserProps {
+  user: {
+    name: string;
+    email: string;
+    company: {
+      name: string;
+    };
+  };
+  onClick: () => void;
+}
+
+export default function CardUser({ user, onClick }: UserProps) {
+  const { name, email, company } = user;
   return (
-    <Container>
+    <Container onClick={onClick}>
       <WrapperUser>
         <UserCircle size={32} />
-        <h1>Nome user</h1>
+        <h1>{name}</h1>
       </WrapperUser>
 
       <WrapperInfo>
-        <p>email do usuario</p>
+        <p>{email}</p>
         <p>
-          <span>Empresa:</span> Lobby tech
+          <span>Empresa:</span>
+          {company.name}
         </p>
       </WrapperInfo>
     </Container>

@@ -22,6 +22,13 @@ export const WrapperUser = styled.div`
 
   > h1 {
     color: #ffffff;
+    font-size: 18px;
+  }
+
+  @media (min-width: 480px) {
+    > h1 {
+      font-size: 24px;
+    }
   }
 `;
 
@@ -31,8 +38,16 @@ export const WrapperInfo = styled.div`
   flex-direction: column;
   gap: 8px;
   > p {
+    font-size: 14px;
     > span {
       font-weight: 700;
+      margin-right: 8px;
+    }
+  }
+
+  @media (min-width: 480px) {
+    > p {
+      font-size: 16px;
     }
   }
 `;
