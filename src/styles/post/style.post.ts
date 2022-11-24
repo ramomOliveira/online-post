@@ -23,6 +23,7 @@ export const Subtitle = styled.h2`
   font-size: 14px;
   font-weight: 400;
   margin-bottom: 16px;
+  color: ${props => props.theme.colors.secondary};
 
   @media (min-width: 480px) {
     font-size: 16px;
@@ -37,4 +38,12 @@ export const Content = styled.p`
   @media (min-width: 480px) {
     font-size: 18px;
   }
+`;
+
+export const WrapperComments = styled.div`
+  margin-top: 32px;
+  padding-left: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 `;
