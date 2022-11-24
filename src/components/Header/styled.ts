@@ -13,6 +13,7 @@ export const Container = styled.div`
 
     > h1 {
       font-size: 18px;
+      color: #ffffff;
     }
   }
 
@@ -66,6 +67,7 @@ export const WrapperLogin = styled.div`
 
   > p {
     font-size: 14px;
+    color: #ffffff;
     > span {
       display: none;
     }
@@ -74,9 +76,12 @@ export const WrapperLogin = styled.div`
   :hover {
     box-sizing: border-box;
     cursor: pointer;
-    color: #61dafb;
-    outline: 2px solid #61dafb;
+    outline: 2px solid ${props => props.theme.colors.secondary};
     background-color: transparent;
+
+    > p {
+      color: ${props => props.theme.colors.secondary};
+    }
   }
 
   @media (min-width: 481px) {

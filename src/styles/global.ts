@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   * {
@@ -17,5 +17,49 @@ export default createGlobalStyle`
   }
   li {
     list-style-type: none;
+  }
+`;
+
+export const WrapperList = styled.div`
+  margin: 16px 24px;
+
+  @media (min-width: 480px) {
+    margin: 24px 32px;
+  }
+
+  @media (min-width: 769px) {
+    margin: 32px 56px;
+  }
+
+  @media (min-width: 1024px) {
+    margin: 48px 188px;
+  }
+
+  @media (min-width: 1280px) {
+    margin: 80px 356px;
+  }
+`;
+
+export const WrapperContent = styled.div`
+  margin: 16px 24px;
+
+  @media (min-width: 480px) {
+    margin: 24px 32px;
+  }
+
+  @media (min-width: 769px) {
+    margin: 32px 56px;
+  }
+
+  @media (min-width: 1024px) {
+    margin: 48px 188px;
+  }
+
+  @media (min-width: 1280px) {
+    margin: 48px 222px;
+  }
+
+  @media (min-width: 1520px) {
+    margin: 80px 356px;
   }
 `;
