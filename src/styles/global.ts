@@ -15,4 +15,7 @@ export default createGlobalStyle`
     text-decoration: none;
     color: inherit;
   }
+  li {
+    list-style-type: none;
+  }
 `;
