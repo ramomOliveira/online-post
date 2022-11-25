@@ -2,23 +2,24 @@ import { useEffect, useState } from 'react';
 import CardPosts from '../../components/CardPosts';
 import Header from '../../components/Header';
 import { WrapperList } from '../../styles/global';
-import api from '../../../lib/api';
 import { useRouter } from 'next/router';
-
-interface PostProps {
-  id: number;
-  title: string;
-  body: string;
-}
+import { getPosts, PostProps } from '../../services/posts';
 
 export default function Posts() {
   const [postsList, setPostList] = useState<PostProps[]>([]);
   const router = useRouter();
 
+  const load = async () => {
+    try {
+      const { data } = await getPosts();
+      setPostList(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
-    api.get('/posts').then(response => {
-      setPostList(response.data);
-    });
+    load();
   }, []);
 
   return (
