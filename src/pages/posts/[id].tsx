@@ -63,6 +63,7 @@ export default function Post() {
             <Content>{post?.body}</Content>
 
             <WrapperComments>
+              <h2>Comentários</h2>
               {comments.map(comment => (
                 <CardComment key={comment.id} comment={comment} />
               ))}
