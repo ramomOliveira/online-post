@@ -13,16 +13,11 @@ export const Container = styled.div`
 export const Avatar = styled.div`
   min-width: 200px;
   height: 400px;
-
-  > div {
-    background-image: url('/images/p1.webp');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 8px;
-    width: 100%;
-    height: 100%;
-  }
+  box-shadow: 0px 2px 12px ${props => props.theme.colors.secondary};
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   @media (min-width: 480px) {
     height: 500px;

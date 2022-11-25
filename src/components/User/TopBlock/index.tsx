@@ -1,4 +1,4 @@
-import { EnvelopeSimple, Globe, Phone } from 'phosphor-react';
+import { EnvelopeSimple, Globe, Phone, UserCircle } from 'phosphor-react';
 import { Container, Avatar, UserInfo, Top, Bottom } from './style';
 
 interface UserProps {
@@ -32,7 +32,7 @@ export default function TopBlock({ user }: UserProps) {
   return (
     <Container>
       <Avatar>
-        <div />
+        <UserCircle size={96} color="#61dafb" weight="duotone" />
       </Avatar>
 
       <UserInfo>
