@@ -1,7 +1,34 @@
 import { EnvelopeSimple, Globe, Phone } from 'phosphor-react';
 import { Container, Avatar, UserInfo, Top, Bottom } from './style';
 
-export default function TopBlock() {
+interface UserProps {
+  user: {
+    id: number;
+    name: string;
+    username: string;
+    email: string;
+    address: {
+      street: string;
+      suite: string;
+      city: string;
+      zipcode: string;
+      geo: {
+        lat: string;
+        lng: string;
+      };
+    };
+    phone: string;
+    website: string;
+    company: {
+      name: string;
+      catchPhrase: string;
+      bs: string;
+    };
+  };
+}
+
+export default function TopBlock({ user }: UserProps) {
+  const { username, name, email, phone, website, address, company } = user;
   return (
     <Container>
       <Avatar>
@@ -11,22 +38,22 @@ export default function TopBlock() {
       <UserInfo>
         <Top>
           <div>
-            <h1>Ramom</h1>
-            <h2>Ramom Eneilson de oliveira Silva</h2>
+            <h1>{username}</h1>
+            <h2>{name}</h2>
           </div>
 
           <div>
             <p>
               <EnvelopeSimple size={16} />
-              email.com@/cpss.br
+              {email}
             </p>
             <p>
               <Phone size={16} />
-              23-312-23123-31
+              {phone}
             </p>
             <p>
               <Globe size={16} />
-              siite.com.site@gdgd.com
+              {website}
             </p>
           </div>
         </Top>
@@ -34,17 +61,17 @@ export default function TopBlock() {
         <Bottom>
           <div>
             <h2>Endereço</h2>
-            <p>Olimpio Irinel bianchete</p>
-            <p>Apt. 49</p>
-            <p>Alfredo Vasconcelos</p>
-            <p>36272-000</p>
+            <p>{address.street}</p>
+            <p>{address.suite}</p>
+            <p>{address.city}</p>
+            <p>{address.zipcode}</p>
           </div>
 
           <div>
             <h2>Empresa</h2>
-            <p>Lobby tech</p>
-            <p>Multi-layered client-server neural-net</p>
-            <p>harness real-time e-markets</p>
+            <p>{company.name}</p>
+            <p>{company.catchPhrase}</p>
+            <p>{company.bs}</p>
           </div>
         </Bottom>
       </UserInfo>
