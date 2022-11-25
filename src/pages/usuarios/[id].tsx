@@ -31,8 +31,6 @@ export default function User() {
 
   return (
     <div>
-      <Header />
-
       <WrapperContent>
         {loading ? <Loading /> : user && <TopBlock user={user} />}
       </WrapperContent>

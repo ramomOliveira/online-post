@@ -30,8 +30,6 @@ export default function Users() {
 
   return (
     <div>
-      <Header />
-
       <WrapperList>
         {loading ? (
           <Loading />

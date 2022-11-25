@@ -29,8 +29,6 @@ export default function Posts() {
 
   return (
     <div>
-      <Header />
-
       <WrapperList>
         {loading ? (
           <Loading />

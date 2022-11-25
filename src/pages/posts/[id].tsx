@@ -53,7 +53,6 @@ export default function Post() {
 
   return (
     <div>
-      <Header />
       <WrapperContent>
         {loading ? (
           <Loading />
