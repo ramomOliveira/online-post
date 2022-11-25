@@ -15,18 +15,23 @@ import {
   Content,
   WrapperComments,
 } from '../../styles/post/style.post';
+import Loading from '../../components/Loading';
 
 export default function Post() {
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
   const [post, setPost] = useState<PostProps | undefined>(undefined);
   const [comments, setComments] = useState<CommentsProps[]>([]);
 
   const loadPost = async (id: number) => {
     try {
+      setLoading(true);
       const { data } = await getPostById(id);
       setPost(data);
     } catch (error) {
       console.error(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -50,15 +55,21 @@ export default function Post() {
     <div>
       <Header />
       <WrapperContent>
-        <Title>{post?.title}</Title>
-        <Subtitle># {post?.id}</Subtitle>
-        <Content>{post?.body}</Content>
+        {loading ? (
+          <Loading />
+        ) : (
+          <>
+            <Title>{post?.title}</Title>
+            <Subtitle># {post?.id}</Subtitle>
+            <Content>{post?.body}</Content>
 
-        <WrapperComments>
-          {comments.map(comment => (
-            <CardComment key={comment.id} comment={comment} />
-          ))}
-        </WrapperComments>
+            <WrapperComments>
+              {comments.map(comment => (
+                <CardComment key={comment.id} comment={comment} />
+              ))}
+            </WrapperComments>
+          </>
+        )}
       </WrapperContent>
     </div>
   );

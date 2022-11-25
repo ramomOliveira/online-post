@@ -5,10 +5,11 @@ import CardUser from '../../components/CardUser';
 import Header from '../../components/Header';
 import { WrapperList } from '../../styles/global';
 import { Content } from '../../styles/user/style.index';
+import Loading from '../../components/Loading';
 
 export default function Users() {
   const [usersList, setUsersList] = useState<UsersProps[]>([]);
-  const [_, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const load = async () => {
@@ -32,15 +33,19 @@ export default function Users() {
       <Header />
 
       <WrapperList>
-        <Content>
-          {usersList.map(user => (
-            <CardUser
-              onClick={() => router.push(`/usuarios/${user.id}`)}
-              key={user.id}
-              user={user}
-            />
-          ))}
-        </Content>
+        {loading ? (
+          <Loading />
+        ) : (
+          <Content>
+            {usersList.map(user => (
+              <CardUser
+                onClick={() => router.push(`/usuarios/${user.id}`)}
+                key={user.id}
+                user={user}
+              />
+            ))}
+          </Content>
+        )}
       </WrapperList>
     </div>
   );
