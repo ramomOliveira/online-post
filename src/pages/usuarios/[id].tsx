@@ -1,56 +1,39 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import api from '../../../lib/api';
+import { getUserById, UsersProps } from '../../services/users';
 import Header from '../../components/Header';
 import TopBlock from '../../components/User/TopBlock';
 import { WrapperContent } from '../../styles/global';
-
-interface UserProps {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  address: {
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: string;
-    geo: {
-      lat: string;
-      lng: string;
-    };
-  };
-  phone: string;
-  website: string;
-  company: {
-    name: string;
-    catchPhrase: string;
-    bs: string;
-  };
-}
+import Loading from '../../components/Loading';
 
 export default function User() {
-  const [user, setUser] = useState<UserProps>();
+  const [user, setUser] = useState<UsersProps>();
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
+
+  const load = async (id: number) => {
+    try {
+      setLoading(true);
+      const { data } = await getUserById(id);
+      setUser(data);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     if (router.query.id) {
-      api
-        .get(`/users/${router.query.id}`)
-        .then(response => {
-          setUser(response.data);
-        })
-        .catch(error => {
-          console.log(error);
-        });
+      load(Number(router.query.id));
     }
   }, [router]);
 
   return (
     <div>
-      <Header />
-
-      <WrapperContent>{user && <TopBlock user={user} />}</WrapperContent>
+      <WrapperContent>
+        {loading ? <Loading /> : user && <TopBlock user={user} />}
+      </WrapperContent>
     </div>
   );
 }

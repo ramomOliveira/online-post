@@ -42,8 +42,12 @@ export const Content = styled.p`
 
 export const WrapperComments = styled.div`
   margin-top: 32px;
-  padding-left: 32px;
   display: flex;
   flex-direction: column;
   gap: 24px;
+
+  > h2:first-child {
+    font-size: 20px;
+    color: #ffffff;
+  }
 `;
